@@ -4,7 +4,7 @@
 --Description :
 */
 
-void file_validation_n_file_list(Flist **head, char *argv[]) 
+void file_validation_n_file_list(Flist **f_head, char *argv[]) 
 {
 	// Declare the variables
 	int i = 1 , empty ;
@@ -32,7 +32,7 @@ void file_validation_n_file_list(Flist **head, char *argv[])
 		{
 			// if file valid then --> add this to the file linked list 
 			int ret_val = to_create_list_of_files(f_head,argv[i]) ;
-
+			
 			if(ret_val == SUCCESS)
 			{
 				printf("SUCCESSFULL : Inserting the file name : %s into file linked list\n",argv[i]) ;
@@ -45,6 +45,8 @@ void file_validation_n_file_list(Flist **head, char *argv[])
 			{
 				printf("FAILURE\n") ;
 			}
+
+			i++ ;
 		}
 	}
 
@@ -52,16 +54,20 @@ void file_validation_n_file_list(Flist **head, char *argv[])
 
 int isFileEmpty(char *filename)
 {
+	int error ;
+
 	// open the file in read mode
 	FILE *fptr = fopen(filename,"r") ;
 
 	// error
 	if(fptr == NULL)
 	{
-		if(error == ENOENT)
+		/*if(error == ENOENT)
 		{
 			return FILE_NOT_AVAILABLE ;
-		}
+		}*/
+		
+		return FILE_NOT_AVAILABLE ;
 	}
 
 	// read the contents of file
@@ -75,12 +81,42 @@ int isFileEmpty(char *filename)
 
 int to_create_list_of_files(Flist **f_head, char *name)
 {
+	// when f_head is null
+	if(*f_head == NULL)
+	{
+		Flist *new = malloc(sizeof(Flist)) ;
+		if(new == NULL)
+			return FAILURE ;
+		
+		strcpy(new->file_name,name) ;
+		new->link = NULL ;
+		*f_head = new ;
+		return SUCCESS ;
+	}
+
+
 	// check whether filenames are duplicate ?
-	/*
+	Flist *ptr = *f_head ;
 
-	   */
-	// create the linked list
+	while(ptr->link != NULL)
+	{
+		if(!strcmp(ptr->file_name,name))
+			return REPETATION ;
+		ptr = ptr->link ;
+	}
 
-			// insert_at_last() 
+	// create the linked list --> ptr will be pointing the last node --> insert_at_last() 
+	Flist *new = malloc(sizeof(Flist)) ;
 
-}	/*  */ 
+	if(new == NULL)
+	{
+		return FAILURE ;
+	}
+	
+	// give file name 
+	strcpy(new->file_name, name) ;
+	new->link = NULL ;
+	ptr->link = new ; 
+
+	return SUCCESS ;
+}	 

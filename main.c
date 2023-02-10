@@ -32,10 +32,30 @@ int main( int argc, char *argv[])
 		return 1 ;
 	}
 
+	/* Declare array of pointers */
+	Wlist *head[27] = {NULL}  ;
+
+	
 	// promt the menu for user
 
-	// create database function 
+	// create database function
+        char ch = 'Y';	
+	int choice ;
+	while(ch == 'Y')
+	{
+		printf("1. Create Database\n2. Display Database\n3. Update Database\n4. Search\n5. Save Database\nEnter you choice : ") ;
+		scanf("%d",&choice) ;
 
+		switch(choice)
+		{
+			;
+		}
+
+
+
+		printf("Do you want to continue ?? [Y/n] :\n") ;
+		scanf(" %c",&ch) ;
+	}
 
 
 	
