@@ -38,9 +38,8 @@ int main( int argc, char *argv[])
 	
 	// promt the menu for user
 
-	// create database function
-        char ch = 'Y';	
-	int choice ;
+        char str[WORD_SIZE] ,ch = 'Y';	
+	int choice ,ret;
 	while(ch == 'Y')
 	{
 		printf("1. Create Database\n2. Display Database\n3. Update Database\n4. Search\n5. Save Database\nEnter you choice : ") ;
@@ -48,7 +47,25 @@ int main( int argc, char *argv[])
 
 		switch(choice)
 		{
-			;
+			case 1:
+				create_database(f_head,head) ;
+				printf("INFO : Database created successfully\n") ;
+				break ;
+			case 2:
+				display_database(head) ;
+				break ;				
+			case 4:
+				printf("Enter the word : ") ;
+				scanf("%s",str) ;
+				if( (ret = search(head,str)) == FAILURE ) 
+				{
+					printf("Word [%s] not found the database\n",str) ;
+				}
+				break ;
+			case 5:
+				save_database(head) ;
+				break ;
+			
 		}
 
 
@@ -56,16 +73,6 @@ int main( int argc, char *argv[])
 		printf("Do you want to continue ?? [Y/n] :\n") ;
 		scanf(" %c",&ch) ;
 	}
-
-
-	
-		
-
-
-
-
-
-
 
 }
 

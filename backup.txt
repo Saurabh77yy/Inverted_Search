@@ -1,0 +1,14 @@
+#[0];
+[am]	2 file(s): file: f1.txt : 1 time(s) f2.txt : 1 time(s)#
+
+#[6];
+[good]	2 file(s): file: f1.txt : 1 time(s) f2.txt : 1 time(s)#
+
+#[7];
+[hi]	2 file(s): file: f1.txt : 1 time(s) f2.txt : 1 time(s)
+[hello]	1 file(s): file: f1.txt : 1 time(s)
+[how]	1 file(s): file: f2.txt : 1 time(s)#
+
+#[8];
+[i]	2 file(s): file: f1.txt : 2 time(s) f2.txt : 1 time(s)#
+

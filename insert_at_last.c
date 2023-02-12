@@ -31,16 +31,14 @@ int insert_at_last(Wlist **head, data_t *data)
 		return SUCCESS ;
 	}
 
-	// traverse through lsit
+	// traverse through the list
 	Wlist *temp = *head ;
-	while(temp->link)
+	while(temp->link != NULL)
 	{
 		temp = temp->link ;
 	}
 	temp->link = new ;
 	return SUCCESS ;
-	
-
 
 }
 

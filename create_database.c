@@ -16,18 +16,21 @@ void create_database(Flist *f_head,Wlist *head[])
 
 }
 
+
 Wlist* read_datafile(Flist *file, Wlist *head[], char *filename)
 {
 	// open file in read mode
 	fname = filename ;
 
-	int flag = 1 ;
 	FILE *fptr = fopen(filename,"r") ;
 
 	// declare an array to read
 	char word[WORD_SIZE] ;
 	while(fscanf(fptr,"%s",word) != EOF)
 	{
+		int flag = 1 ;
+		/*printf("#----checking word %s------#\n",word) ;*/
+
 		int index = tolower(word[0]) % 'a' ;
 
 		// other than alphabet
@@ -38,15 +41,18 @@ Wlist* read_datafile(Flist *file, Wlist *head[], char *filename)
 		if(head[index] != NULL)
 		{
 			Wlist *temp = head[index] ;
+			
 			// compare and check if repeated
 			while(temp)
 			{
 				if(!(strcmp(temp->word,word))) 
 				{
 					update_word_count(&temp) ;
-					flag == 0 ;
+					flag = 0 ;
 					break ;
-				}	
+				}
+				
+				temp = temp->link ; 	
 			}
 		}
 
@@ -63,10 +69,12 @@ Wlist* read_datafile(Flist *file, Wlist *head[], char *filename)
 int update_word_count(Wlist **head)
 {
 	// check whether filename are same or not
-	Ltable *temp =  (*head)->Tlink ;
+	Ltable *temp =  (*head)->Tlink,*prev ;
 	
-	while(temp->table_link != NULL)
+	while(temp)
 	{
+		prev = temp ;
+		
 		if(!strcmp(temp->file_name,fname))
 		{
 			temp->word_count++ ;
@@ -91,18 +99,8 @@ int update_word_count(Wlist **head)
 	new->word_count = 1 ;
 	new->table_link = NULL ;
 
-	temp->table_link = new ;
+	// temp->table_link = new ;
+	prev->table_link = new ;
 	return SUCCESS ;
 
-
-
 }
-
-
-
-
-
-
-
-
-
