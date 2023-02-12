@@ -19,7 +19,7 @@ int main( int argc, char *argv[])
 
 	// create the list of filenames 
 	// declare the head pointer
-	Flist *f_head = NULL ;
+	Flist *f_head = NULL ,*temp,*last;
 
 	// validation the files
 
@@ -39,8 +39,8 @@ int main( int argc, char *argv[])
 	// promt the menu for user
 
         char str[WORD_SIZE] ,ch = 'Y';	
-	int choice ,ret;
-	while(ch == 'Y')
+	int choice ,ret,flag=1;
+	while(ch == 'Y' || ch == 'y')
 	{
 		printf("1. Create Database\n2. Display Database\n3. Update Database\n4. Search\n5. Save Database\nEnter you choice : ") ;
 		scanf("%d",&choice) ;
@@ -48,18 +48,59 @@ int main( int argc, char *argv[])
 		switch(choice)
 		{
 			case 1:
-				create_database(f_head,head) ;
-				printf("INFO : Database created successfully\n") ;
+				if(flag == 1)
+				{
+					create_database(f_head,head) ;
+					printf("INFO : Database created successfully\n") ;
+					flag = 0 ;
+				}
+				else
+				{
+					printf("INFO : Database already updated !!\n") ; 
+				}
 				break ;
 			case 2:
 				display_database(head) ;
 				break ;				
+			case 3:
+				printf("Enter the file name : ") ;
+				scanf("%s",str) ;
+				argv[argc] = str ;
+				argc++ ;
+				argv[argc] = NULL ;
+				last = f_head ;
+				while(last->link) 
+				{
+					// printf("%s\n",temp->file_name) ;
+					last = last->link ;
+				}
+
+				file_validation_n_file_list(&f_head,argv) ;
+				
+				/*temp = f_head ;
+				while(temp->link) 
+				{
+					// printf("%s\n",temp->file_name) ;
+					temp = temp->link ;
+				}*/
+
+				if(last->link != NULL)
+				{
+					create_database(last->link,head) ;
+					printf("INFO : %s file is updated successfully in the database.\n",str) ;
+				}
+				else
+				{
+					printf("INFO : Given file already included in the database or file is empty.\n") ;
+				}
+
+				break ;
 			case 4:
 				printf("Enter the word : ") ;
 				scanf("%s",str) ;
 				if( (ret = search(head,str)) == FAILURE ) 
 				{
-					printf("Word [%s] not found the database\n",str) ;
+					printf("Word [%s] not found in the database\n",str) ;
 				}
 				break ;
 			case 5:
@@ -70,7 +111,7 @@ int main( int argc, char *argv[])
 
 
 
-		printf("Do you want to continue ?? [Y/n] :\n") ;
+		printf("Do you want to continue ??\nIf yes then press [Y/y] :\n") ;
 		scanf(" %c",&ch) ;
 	}
 

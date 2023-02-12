@@ -4,6 +4,8 @@
 --Description :
 */
 
+static int flag = 1 ;
+
 void file_validation_n_file_list(Flist **f_head, char *argv[]) 
 {
 	// Declare the variables
@@ -16,17 +18,23 @@ void file_validation_n_file_list(Flist **f_head, char *argv[])
 
 		if(empty == FILE_NOT_AVAILABLE)
 		{
-			printf("File : %s is not available\n",argv[i]) ;
-			printf("Hence we are not adding this file into file linked list\n") ;
-			i++ ;
-			continue ;
+			if(flag == 1)
+			{
+				printf("File : %s is not available\n",argv[i]) ;
+				printf("Hence we are not adding this file into file linked list\n") ;
+			}
+			//i++ ;
+			//continue ;
 		}
 		else if(empty == FILE_EMPTY)
 		{
-			printf("File : %s is not having any contents in it\n",argv[i]) ;
-			printf("Hence we are not adding this file into file linked list\n") ;
-			i++ ;
-			continue ;
+			if(flag == 1)
+			{
+				printf("File : %s is not having any contents in it\n",argv[i]) ;
+				printf("Hence we are not adding this file into file linked list\n") ;
+			}
+			//i++ ;
+			//continue ;
 		}
 		else
 		{
@@ -35,20 +43,26 @@ void file_validation_n_file_list(Flist **f_head, char *argv[])
 			
 			if(ret_val == SUCCESS)
 			{
-				printf("SUCCESSFULL : Inserting the file name : %s into file linked list\n",argv[i]) ;
+				if(flag == 1)
+					printf("SUCCESSFULL : Inserting the file name : %s into file linked list\n",argv[i]) ;
 			}
 			else if(ret_val == REPETATION)
 			{
-				printf("This file name : %s is repeated. Do not insert more than once\n",argv[i]) ;
+				if(flag == 1)
+					printf("This file name : %s is repeated. Do not insert more than once\n",argv[i]) ;
 			}	
 			else
 			{
-				printf("FAILURE\n") ;
+				if(flag == 1)
+					printf("FAILURE\n") ;
 			}
 
-			i++ ;
+			//i++ ;
 		}
+		i++ ;
 	}
+
+	flag = 0 ;
 
 }
 
@@ -96,10 +110,11 @@ int to_create_list_of_files(Flist **f_head, char *name)
 
 
 	// check whether filenames are duplicate ?
-	Flist *ptr = *f_head ;
+	Flist *ptr = *f_head,*prev ;
 
-	while(ptr->link != NULL)
+	while(ptr != NULL)
 	{
+		prev = ptr ;
 		if(!strcmp(ptr->file_name,name))
 			return REPETATION ;
 		ptr = ptr->link ;
@@ -116,7 +131,7 @@ int to_create_list_of_files(Flist **f_head, char *name)
 	// give file name 
 	strcpy(new->file_name, name) ;
 	new->link = NULL ;
-	ptr->link = new ; 
+	prev->link = new ; 
 
 	return SUCCESS ;
 }	 
