@@ -18,6 +18,7 @@ int search(Wlist **head,char *word)
 	{
 		if(!strcmp(temp->word,word))
 		{
+			green() ;
 			printf("Word [%s] is found in the database and it is present in %d file(s)\n",word,temp->file_count) ;
 			// traverse through file table
 			Ltable *ptr = temp->Tlink ;
@@ -27,6 +28,7 @@ int search(Wlist **head,char *word)
 
 				ptr = ptr->table_link ;
 			}
+			reset() ;
 
 			return SUCCESS ;
 

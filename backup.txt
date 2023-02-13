@@ -1,0 +1,97 @@
+#[0];
+[are]	1 file(s): file: f1.txt : 1 time(s)
+[am]	2 file(s): file: f1.txt : 1 time(s) f2.txt : 1 time(s)
+[about]	2 file(s): file: f1.txt : 1 time(s) f2.txt : 1 time(s)
+[apple]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[1];
+[bnana]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[2];
+[cat]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[3];
+[dog]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[4];
+[elephant]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[5];
+[fan]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[6];
+[good.]	2 file(s): file: f1.txt : 1 time(s) f2.txt : 1 time(s)
+[grapes]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[7];
+[Hello]	1 file(s): file: f1.txt : 1 time(s)
+[how]	1 file(s): file: f1.txt : 1 time(s)
+[hen]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[8];
+[I]	2 file(s): file: f1.txt : 1 time(s) f2.txt : 1 time(s)
+[inkpot]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[9];
+[jug]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[10];
+[kite]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[11];
+[lamp]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[12];
+[mango]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[13];
+[next]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[14];
+[orange]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[15];
+[parrot]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[16];
+[queen]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[17];
+[rat]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[18];
+[sun]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[19];
+[tiger]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[20];
+[umbrella]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[21];
+[van]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[22];
+[What]	2 file(s): file: f1.txt : 1 time(s) f2.txt : 1 time(s)
+[watch]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[23];
+[xray]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[24];
+[you]	1 file(s): file: f1.txt : 2 time(s)
+[yourself?]	1 file(s): file: f2.txt : 1 time(s)#
+
+#[25];
+[zebre]	1 file(s): file: test_file.txt : 1 time(s)#
+
+#[26];
+[?]	1 file(s): file: f1.txt : 2 time(s)
+[!]	1 file(s): file: test_file.txt : 1 time(s)
+[@]	1 file(s): file: test_file.txt : 1 time(s)
+[#]	1 file(s): file: test_file.txt : 1 time(s)
+[%]	1 file(s): file: test_file.txt : 1 time(s)
+[-]	1 file(s): file: test_file.txt : 1 time(s)
+[=]	1 file(s): file: test_file.txt : 1 time(s)
+[+]	1 file(s): file: test_file.txt : 1 time(s)#
+

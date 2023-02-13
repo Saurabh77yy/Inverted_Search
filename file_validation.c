@@ -1,9 +1,10 @@
 #include "inverted_search.h"
 
 /*
---Description :
+--Description : file_validation_n_file()  & read_datafile() & isFileEmpty() 
 */
 
+// flag to print the file validation only once in the starting 
 static int flag = 1 ;
 
 void file_validation_n_file_list(Flist **f_head, char *argv[]) 
@@ -20,21 +21,21 @@ void file_validation_n_file_list(Flist **f_head, char *argv[])
 		{
 			if(flag == 1)
 			{
+				red() ;
 				printf("File : %s is not available\n",argv[i]) ;
 				printf("Hence we are not adding this file into file linked list\n") ;
+				reset() ;
 			}
-			//i++ ;
-			//continue ;
 		}
 		else if(empty == FILE_EMPTY)
 		{
 			if(flag == 1)
 			{
+				red() ;
 				printf("File : %s is not having any contents in it\n",argv[i]) ;
 				printf("Hence we are not adding this file into file linked list\n") ;
+				reset() ;
 			}
-			//i++ ;
-			//continue ;
 		}
 		else
 		{
@@ -43,21 +44,26 @@ void file_validation_n_file_list(Flist **f_head, char *argv[])
 			
 			if(ret_val == SUCCESS)
 			{
+				green() ;
 				if(flag == 1)
 					printf("SUCCESSFULL : Inserting the file name : %s into file linked list\n",argv[i]) ;
+				reset() ;
 			}
 			else if(ret_val == REPETATION)
 			{
+				red() ;
 				if(flag == 1)
 					printf("This file name : %s is repeated. Do not insert more than once\n",argv[i]) ;
+				reset() ;
 			}	
 			else
 			{
+				red() ;
 				if(flag == 1)
 					printf("FAILURE\n") ;
+				reset() ;
 			}
 
-			//i++ ;
 		}
 		i++ ;
 	}

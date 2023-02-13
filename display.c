@@ -3,14 +3,27 @@
 
 void display_database(Wlist *head[])
 {
+
+	if(head[0] == NULL)
+	{
+		red() ;
+		printf("Create your database first to use display option.\n") ; reset() ;
+	}
+	else
+	{
+		 green() ;
+		printf("[index]\t    <word>\t<file_count>\t<file>\t\n") ; reset() ;
+	}
+
 	int i ;
-	printf("[index]\t    <word>\t<file_count>\t<file>\t<file_name>\t\n") ;
+	
 	for(i=0 ; i<27 ; i++)
 	{
 		if(head[i] != NULL)
 		{
+			purple() ;
 			printf(" [%2d]\t",i) ;
-			
+			reset() ;
 			// traverse through the word node
 			Wlist *temp = head[i] ;
 			int var = 1 ;

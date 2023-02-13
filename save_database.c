@@ -47,8 +47,9 @@ void save_database(Wlist *head[])
 			}
 
 		}
-
+		green() ;
 		printf("INFO : Backup file created successfully.\n") ;
+		reset() ;
 	}
 	else
 	{

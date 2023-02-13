@@ -44,22 +44,39 @@ typedef struct word_node
 	struct word_node *link ;
 }Wlist;
 
-int to_create_list_of_files(Flist **f_head, char *name) ;
-// int printf_list(Wlist *head) ;
-// int printf_list(Flist *head) ;
+
+/* file validation */
+void file_validation_n_file_list(Flist **f_head, char *argv[]) ;
+
+/* create database */
 void create_database(Flist *f_head,Wlist *head[]) ;
+int to_create_list_of_files(Flist **f_head, char *name) ;
 Wlist* read_datafile(Flist *file, Wlist *head[], char *filename) ;
 int insert_at_last(Wlist **head, data_t *data) ;
 int update_link_table(Wlist **head) ;
 int update_word_count(Wlist **head) ;
+int isFileEmpty(char *filename) ;
+
 int print_word_count(Wlist *head) ;
+
+/* search database */
 int search(Wlist **head,char *word) ;
+
+/* display database */
 void display_database(Wlist *head[]) ;
-// void display_database(Wlist *head) ;
+
+/* save database */
 void save_database(Wlist *head[]) ;
 void write_database(Wlist *head, FILE* databsefile);
+
+/* update database */
 void update_database(Wlist *head[], Flist **f_head, char *argv[]) ;
-int isFileEmpty(char *filename) ;
-void file_validation_n_file_list(Flist **f_head, char *argv[]) ;
+
+/* to add color */
+void red() ;
+void reset() ;
+void green() ;
+void purple() ;
+
 #endif
 

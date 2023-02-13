@@ -1,7 +1,7 @@
 #include "inverted_search.h"
 
 /*
---Description :
+--Description : insert_at_last() function definition
 */
 
 

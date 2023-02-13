@@ -1,1 +1,3 @@
-hi hello i am good i
+Hello how are you ? 
+I am good.
+What about you ?
